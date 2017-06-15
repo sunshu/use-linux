@@ -36,3 +36,34 @@
     sudo apt-get install gnome-tweak-tool
     或者 gsettings set com.canonical.Unity.Launcher launcher-position Bottom
     ```
+    
+5. 设置环境变量
+    
+    #set Java environment
+
+JAVA_HOME=/home/sunshu/opt/jdk1.8
+
+JRE_HOME=/home/sunshu/opt/jdk1.8/jre
+
+export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
+
+export CLASSPATH=$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
+
+export PATH=/home/sunshu/opt/android-studio/jre:
+            /home/sunshu/opt/android-studio/jre/bin:
+            /home/sunshu/opt/android-studio/jre/jre/bin:
+            /home/sunshu/opt/gnuarm-4.2.1/image-tools:/home/sunshu/opt/lzop-1.03-i386_linux:
+            /home/sunshu/.cargo/bin:
+            /home/sunshu/bin:
+            /home/sunshu/.local/bin:
+            /usr/local/sbin:
+            /usr/local/bin:
+            /usr/sbin:
+            /usr/bin:
+            /sbin:
+            /bin:
+            /usr/games:    #数独 扫雷 连连看
+            /usr/local/games:
+            /snap/bin:
+            /opt/isdk/tools:
+            /opt/sdk/platform-tools
