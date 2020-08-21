@@ -1,0 +1,48 @@
+问题：
+   no permissions (user in plugdev group; are your udev rules wrong?);
+   
+环境： linux mint 20
+   
+   $ lsusb
+
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 001 Device 004: ID 8087:0a2a Intel Corp. 
+Bus 001 Device 003: ID 0bda:57c4 Realtek Semiconductor Corp. HP Truevision HD
+Bus 001 Device 002: ID 046d:c247 Logitech, Inc. G100S Optical Gaming Mouse
+Bus 001 Device 008: ID 18d1:4ee7 Google Inc. MI 8 SE
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+
+
+ 
+
+虚拟中安装adb后，使用adb devices，能看到id，但提示用户无权限
+
+$ adb devices
+List of devices attached
+6c72c46d no permissions (user in plugdev group; are your udev rules wrong?); see [http://developer.android.com/tools/device.html]
+
+ 
+
+adb shell 指令不能用
+
+$ adb shell
+error: insufficient permissions for device: user in plugdev group; are your udev rules wrong?
+See [http://developer.android.com/tools/device.html] for more information
+
+ 
+
+解决办法：
+
+1、在下面路径创建规则文件
+
+/etc/udev/rules.d/xxx.rules
+
+2、规则文件中输入以下内容
+
+SUBSYSTEM=="usb", MODE="0660", GROUP="plugdev", SYMLINK+="android%n"
+
+ 3、再次拔插手机即可
+
+
+   
+   
